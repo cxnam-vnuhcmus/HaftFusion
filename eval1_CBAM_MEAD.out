@@ -1,0 +1,36 @@
+2024-02-18 07:00:31.033917: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-18 07:00:31.113363: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-18 07:00:32.501945: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Load pretrained model at Epoch: 195
+  0%|          | 0/24 [00:00<?, ?it/s]  0%|          | 0/24 [00:10<?, ?it/s]
+Traceback (most recent call last):
+  File "eval1_CBAM_MEAD.py", line 341, in <module>
+    main()
+  File "eval1_CBAM_MEAD.py", line 25, in main
+    eval(model, test_dataloader)
+  File "eval1_CBAM_MEAD.py", line 60, in eval
+    fid_score = calculate_fid(g, gt)
+  File "eval1_CBAM_MEAD.py", line 123, in calculate_fid
+    feats = fid_metric.compute_feats([
+  File "/media/cxnam/miniconda3/envs/myenv/lib/python3.8/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/media/cxnam/miniconda3/envs/myenv/lib/python3.8/site-packages/piq/base.py", line 39, in compute_feats
+    feature_extractor.to(device)
+  File "/media/cxnam/miniconda3/envs/myenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in to
+    return self._apply(convert)
+  File "/media/cxnam/miniconda3/envs/myenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 810, in _apply
+    module._apply(fn)
+  File "/media/cxnam/miniconda3/envs/myenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 810, in _apply
+    module._apply(fn)
+  File "/media/cxnam/miniconda3/envs/myenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 810, in _apply
+    module._apply(fn)
+  [Previous line repeated 1 more time]
+  File "/media/cxnam/miniconda3/envs/myenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 833, in _apply
+    param_applied = fn(param)
+  File "/media/cxnam/miniconda3/envs/myenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1158, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+  File "/media/cxnam/miniconda3/envs/myenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: No CUDA GPUs are available
+finished
